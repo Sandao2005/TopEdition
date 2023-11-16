@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/x-icon" href="Images/Logos/Icon Transparent.png"/>
+	<title>TopEdition</title>
+	<link rel="stylesheet" href="CSS/Style.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+	<script defer src="JS/Script.js"></script>
+</head>
+<body>
+	<div class="header">
+		<div class="topBar">
+			<img src="Images/Logos/Icon Transparent.png" id="logo"/>
+			<button id="newImageButton" onclick="newImage()">Nova imagem em branco</button>
+			<button id="openImageButton" onclick="openImage()">Abrir imagem</button>
+			<button id="settingsButton" onclick="settings()">Configurações</button>
+			<button id="helpButton" onclick="help()">Ajuda</button>
+			<button id="downloadButton"onclick="download()">Download</button>
+		</div>
+	</div>
+	<div class="content">
+		
+		<div>
+			<div class="dialog" id="newImageDialog">
+				<h3>Nova imagem</h3>
+				<h4>Quadrado</h4>
+				<button id="generateCanvas100x100Button"onclick="generateCanvas100x100()">Gerar imagem 100×100 em branco</button>
+				<button id="generateCanvas500x500Button" onclick="generateCanvas500x500()">Gerar imagem 500×500 em branco</button>
+				<button id="generateCanvas1080x1080Button" onclick="generateCanvas1080x1080()">Gerar imagem 1080×1080 em branco</button>
+				<h4>Retângulo (Paisagem)</h4>
+				<button id="generateCanvas800x600Button" onclick="generateCanvas800x600()">Gerar imagem 800×600 em branco</button>
+				<button id="generateCanvas1280x720Button" onclick="generateCanvas1280x720()">Gerar imagem 1280×720 em branco</button>
+				<button id="generateCanvas1920x1080Button" onclick="generateCanvas1920x1080()">Gerar imagem 1920×1080 em branco</button>
+				<h4>Retângulo (Retrato)</h4>
+				
+				<button id="generateCanvas600x800Button" onclick="generateCanvas600x800()">Gerar imagem 600×800 em branco</button>
+				<button id="generateCanvas720x1280Button" onclick="generateCanvas1280x720()">Gerar imagem 720×1280 em branco</button>
+				<button id="generateCanvas1080x1920Button" onclick="generateCanvas1080x1920()">Gerar imagem 1080×1920 em branco</button>
+				
+				
+				<button id="generateCanvasPersonalizedButton"
+				onclick="generateCanvasPersonalized()">Gerar imagem em branco de tamanho personalizado</button>
+
+				<button onclick="closeNewImageDialog()">Fechar</button>
+			</div>
+			<div class="dialog" id="openImageDialog">
+				<h3>Abrir imagem</h3>
+				<input type="file" id="fileInput" accept="image/*">
+				<p>Aviso: Se quiser importar uma imagem para editar, gere uma imagem primeiro e depois abra a imagem por cima da imagem em branco gerada anteriormente, ao abrir a imagem sobre a imagem em branco o tamanho se adaptará corretamente.</p>
+				<button id="openImageToCanvasButton" onclick="closeOpenImageDialog()">Fechar</button>
+			</div>
+			<div class="dialog" id="settingsDialog">
+				<h3>Configurações</h3>
+				<h4>Tema:</h4>
+				<p>Escolha seu tema aqui</p>
+				<select>
+					<option value="White">Tema claro</option>
+					<option value="Black" selected="">Tema preto</option>
+				</select>
+				<h4>Idioma:</h4>
+				<p>Escolha seu Idioma</p>
+				<select>
+					<option value="Portugues">Portugues</option>
+					<option value="English">English</option>
+					<option value="Espanol">Español</option>
+				</select>
+				<h4>Acessibilidade:</h4>
+				<input type="checkbox"/>
+				<label for="Screen reader">Leitor de tela</label>
+				<br>
+				<input type="checkbox"/>
+				<label for="Large icons">Ícones grandes</label>
+				<br>
+				<input type="checkbox"/>
+				<label for="High contrast">Alto contraste</label>
+				<br>
+				
+				<button onclick="closeSettingsDialog()">Fechar</button>
+			</div>
+			<div class="dialog" id="helpDialog">
+				<h3>Centro de ajuda do TopEdition</h3>
+				<img src="Images/Capturar.png" id="logoInHelpDialog"/>
+				<div>
+				
+				<p>Bem-vindo ao TopEdition!</p>
+				<p>Clique nos botões abaixo para conseguir ajuda:</p>
+				<button id="topBarHelpButton">Barra de cima</button>
+				<button id="leftBarHelpButton">Barra da esquerda</button>
+				<button id="newBlankImageHelpButton">Criando imagens vazias</button>
+				<button id="openImageHelpButton">Abrindo imagens</button>
+				<button id="openSettingsHelpButton">Abrindo as configurações</button>
+				<button id="openHelpHelpButton">Abrindo a seção de ajuda</button>
+				<button id="downloadingImagesHelpButton">Fazendo o download das imagens</button>
+				<button id="aboutUsHelpButton">Sobre nós</button>
+				<div id="receiveTopBarHelpButton">
+					<h4>Barra de cima:</h4>
+					<p>A barra de cima contém opções que forneçem funcionalidades a janela atual e a imagem que o usuário edita, utilize a barra de cima criar imagens, abrir imagens, abrir opções de acessibilidade, entre outros.</p>
+					
+					<img src="Images/Screenshots for help/topBarImageHelp.PNG" alt="A barra de cima junto com suas opções disponíveis">
+					<br>
+					<button>Voltar para a ajuda</button>
+				</div>
+				<div id="receiveHelpLeftBar">
+					<h4>Barra da esquerda:</h4>
+					<p>A barra da esquerda contém ferramentas para editar a sua imagem, como texto, desenho, filtros, entre outros. Clique em alguma ferramenta para usar.</p>
+					
+					<img src="Images/Screenshots for help/leftBarImageHelp.PNG" alt="A barra de cima junto com suas ferramentas disponíveis">
+					<br>
+					<button>Voltar para a ajuda</button>
+				</div>
+				<div id="receiveHelpNewBlankImage">
+					<h4>Criando imagens em branco:</h4>
+					<p>O botão de criar imagens em branco possibilita a criação de imagens em branco com vários tamanhos diferentes. A imagem é vazia e não tem nada mais na imagem além da cor branca.</p>
+					
+					<img src="Images/Screenshots for help/NewImageImageHelp.PNG" alt="A barra de cima junto com suas ferramentas disponíveis">
+					<br>
+					<button>Voltar para a ajuda</button>
+					<div id="receiveHelpOpenImage">
+						<h4>Abrindo imagens:</h4>
+						<p>Para abrir imagens, primeiro clique no botão que esta escrito "Nova imagem em branco" para gerar uma imagem, depois clique no botão que de abrir imagens para abrir uma imagem sobre a imagem gerada anteriormente e depois em "Escolher arquivo". O tamanho da imagem se adaptará ao tamanho da imagem que você abriu, agora você está pronto para editar sua imagem com o TopEdition!</p>
+					
+					<img src="Images/Screenshots for help/OpenImageImageHelp.PNG" alt="Abrindo uma imagem">
+					</div>
+					<div id="receiveHelpDownloadingImage">
+						<h4>Baixando a imagem:</h4>
+						<p>Para baixar as imagens editadas, clique no botão escrito "Download" no canto superior da tela e escolha se você quer baixar em PNG ou JPG.</p>
+
+						<img src="Images/Screenshots for help/DownloadImageHelp.PNG" alt="Realizando o download de uma imagem">
+					</div>
+				</div>
+				</div>
+
+				
+
+
+				<br>
+				<button onclick="closeHelpDialog()" id="closeHelpDialogButton">Fechar</button>
+			</div>
+			<div class="dialog" id="downloadDialog">
+				<h3>Baixar</h3>
+				<button onclick="downloadPNG()" id="downloadPNGButton"><span class="material-symbols-outlined">download</span>Baixar em PNG</button>
+				<button onclick="downloadAsJPG()" id="downloadAsJPGButton"><span class="material-symbols-outlined">download</span>Baixar em JPG</button>
+				<button onclick="closeDownloadDialog()">Fechar</button>
+			</div>
+		</div>
+		<div class="editionArea">
+			<div id="leftBar" class="leftBar">
+			  <div id="leftBarPaste">
+			    <button onclick="hidePaste()">Voltar</button>
+			    <p>Selecione uma imagem para por por cima da atual:</p>
+			    <input type="file" accept="image/*" id="myPastedImageInput"/>
+			    <p>Selecione o valor para mover pelo eixo X:</p>
+			    <input type="number" id="movePastedImageFromXInput"/>
+			    <p>Selecione o valor para mover pelo eixo Y:</p>
+			    <input type="number" id="movePastedImageFromYInput"/>
+			    <p>Mova o controle deslizante para alterar o tamanho da imagem</p>
+			    <p>Largura:</p>
+			    <input type="range" min="1" max="1000" value="200" id="pastedImageWidthInput"/>
+			    <p>Altura</p>
+			    <input type="range" min="1" max="1000" value="200" id="pastedImageHeightInput"/>
+			    <button onclick="applyPastedImage()">Aplicar</button>
+			    <hr>
+			  </div>
+				<div id="leftBarBrush">
+					<button id="backLeftBarBrush" onclick="hideBrush()">Voltar</button>
+					<p>Cor:</p>
+					<input id="brushColorPicker" name='stroke' type="color" value="#000000">
+					<p>Tamanho:</p>
+					<input id="brushSizePicker" name='lineWidth' type="range" value="1" min="1" max="50">
+					<button id="clearBrushButton" onclick="clearScreen()">Limpar</button>
+					
+				</div>
+				<div id="leftBarBucket">
+					
+				</div>
+				<div id="leftBarPencil">
+					<button id="backLeftBarPencil" onclick="hidePencil()">Voltar</button>
+					<p>Cor:</p>
+					<input type="color" name="stroke" id="pencilColorPicker">
+					<p>Tamanho:</p>
+					<input type="range" name="lineWidth" id="pencilSizePicker" value="1" min="1" max="10">
+					<button id="clearPencilButton" onclick="clearScreen()">Limpar</button>
+				</div>
+				<div id="leftBarSpray">
+					  <button id="backLeftBarSpray" onclick="hideSpray()">Voltar</button>
+					  
+					  <p>Selecione o tamanho do spray:</p>
+					  <input type="range" min="1" max="50" value="1" id="spraySizePicker"/>
+					  
+					  <p>Selecione a intensidade do spray:</p>
+					  <input type="range" min="1"
+					  max="50" value="30" id="sprayIntensityPicker"/>
+					  
+					  <p>Escolha a cor do spray:</p>
+					  <input type="color" id="sprayColorPicker"/>
+				</div>
+				<div id="leftBarEraser">
+					<button id="backLeftBarEraser" onclick="hideEraser()">Voltar</button><br>
+
+					<input type="color" name="stroke" id="eraserColorPicker" value="#ffffff">
+
+					<p>Tamanho:</p>
+					<input type="range" name="lineWidth" id="eraserSizePicker" value="0" min="1" max="40">
+					<button id="clearEraserButton" onclick="clearScreen()">Limpar</button>
+					
+				</div>
+				<div id="leftBarText">
+					<p>Digite seu texto:</p>
+					<input type="text" name="" id="textInput" size="15">
+					<p>Digite o valor para mover seu texto pelo eixo X:</p>
+					<input type="number" id="myTextXValue"/>
+					<p>Digite o valor para mover o seu texto pelo eixo Y:</p>
+					<input type="number" name="" id="myTextYValue"/>
+					<p>Escolha a cor do seu texto:</p>
+					<input type="color" name="" id="myTextColor">
+					<p>Escolha o valor do tamanho do seu texto:</p>
+					<input type="number" name="" min="1" max="1000" value="16"id="myTextSize">
+
+					<button id="sendText" onclick="sendText()">Enviar</button>
+					
+					<br>
+					
+					<button id="closeLeftBarTextButton" onclick="hideText()">Fechar</button>
+
+					<hr>
+				</div>
+        <div id="leftBarEffects">
+          <button id="backLeftBarEffects" onclick="hideEffects()">Voltar</button>
+          <p>Adicione os efeitos sobre a imagem:</p>
+          
+          <p>Escala de cinza:</p>
+          
+          <button id="applyGrayscaleFilter0">Aplicar 0% de escala de cinza</button>
+			<button id="applyGrayscaleFilter25">Aplicar 25% de escala de cinza</button>
+			<button id="applyGrayscaleFilter50">Aplicar 50% de escala de cinza</button>
+			<button id="applyGrayscaleFilter75">Aplicar 75% de escala de cinza</button>
+			<button id="applyGrayscaleFilter100">Aplicar 100% de escala de cinza</button>
+
+          
+          <p>Desfoque:</p>
+          
+          <button id="applyBlurFilter0">Aplicar 0px de blur</button>
+			<button id="applyBlurFilter25">Aplicar 25px de blur</button>
+			<button id="applyBlurFilter50">Aplicar 50px de blur</button>
+			<button id="applyBlurFilter75">Aplicar 75px de blur</button>
+			<button id="applyBlurFilter100">Aplicar 100px de blur</button>
+
+
+          <p>Sépia:</p>
+          
+          <button id="applySepiaFilter0Button">Aplicar 0% de sépia</button>
+			<button id="applySepiaFilter25Button">Aplicar 25% de sépia</button>
+			<button id="applySepiaFilter50Button">Aplicar 50% de sépia</button>
+			<button id="applySepiaFilter75Button">Aplicar 75% de sépia</button>
+			<button id="applySepiaFilter100Button">Aplicar 100% de sépia</button>
+
+          
+          <p>Saturação:</p>
+          
+		  <button id="applySaturateFilter0Button">Aplicar 0% de saturação</button>
+		  <button id="applySaturateFilter25Button">Aplicar 25% de saturação</button>
+		  <button id="applySaturateFilter50Button">Aplicar 50% de saturação</button>
+		  <button id="applySaturateFilter75Button">Aplicar 75% de saturação</button>
+		  <button id="applySaturateFilter100Button">Aplicar 100% de saturação</button>
+			<button id="applySaturateFilter125Button">Aplicar 125% de saturação</button>
+			<button id="applySaturateFilter150Button">Aplicar 150% de saturação</button>
+			<button id="applySaturateFilter175Button">Aplicar 175% de saturação</button>
+		  <button id="applySaturateFilter200Button">Aplicar 200% de saturação</button>
+		  
+          
+          <p>Brilho:</p>
+          <button id="applyBrightnessFilter0Button">Aplicar 0% de brilho</button>
+			<button id="applyBrightnessFilter25Button">Aplicar 25% de brilho</button>
+			<button id="applyBrightnessFilter50Button">Aplicar 50% de brilho</button>
+			<button id="applyBrightnessFilter75Button">Aplicar 75% de brilho</button>
+			<button id="applyBrightnessFilter100Button">Aplicar 100% de brilho</button>
+			<button id="applyBrightnessFilter125Button">Aplicar 125% de brilho</button>
+			<button id="applyBrightnessFilter150Button">Aplicar 150% de brilho</button>
+			<button id="applyBrightnessFilter175Button">Aplicar 175% de brilho</button>
+			<button id="applyBrightnessFilter200Button">Aplicar 200% de brilho</button>
+
+          
+          <p>Contraste:</p>
+          <button id="applyContrastFilter0Button">Aplicar 0% de contraste</button>
+			<button id="applyContrastFilter25Button">Aplicar 25% de contraste</button>
+			<button id="applyContrastFilter50Button">Aplicar 50% de contraste</button>
+			<button id="applyContrastFilter75Button">Aplicar 75% de contraste</button>
+			<button id="applyContrastFilter100Button">Aplicar 100% de contraste</button>
+			<button id="applyContrastFilter125Button">Aplicar 125% de contraste</button>
+			<button id="applyContrastFilter150Button">Aplicar 150% de contraste</button>
+			<button id="applyContrastFilter175Button">Aplicar 175% de contraste</button>
+			<button id="applyContrastFilter200Button">Aplicar 200% de contraste</button>
+
+          
+          <p>Matriz:</p>
+          <button id="applyHueFilter0Button">Aplicar 0° de matriz</button>
+		<button id="applyHueFilter90Button">Aplicar 90° de matriz</button>
+		<button id="applyHueFilter180Button">Aplicar 180° de matriz</button>
+		<button id="applyHueFilter270Button">Aplicar 270° de matriz</button>
+		<button id="applyHueFilter360Button">Aplicar 360° de matriz</button>
+
+          
+		<p>Inverter:</p>
+          
+		<button id="applyInvertFilter0Button">Aplicar 0% de inversão</button>
+		  <button id="applyInvertFilter25Button">Aplicar 25% de inversão</button>
+		  <button id="applyInvertFilter50Button">Aplicar 50% de inversão</button>
+		  <button id="applyInvertFilter75Button">Aplicar 75% de inversão</button>
+		  <button id="applyInvertFilter100Button">Aplicar 100% de inversão</button>
+
+		  <p>Opacidade:</p>
+          
+		  <button id="applyOpacityFilter0Button">Aplicar 0% de opacidade</button>
+			<button id="applyOpacityFilter25Button">Aplicar 25% de opacidade</button>
+			<button id="applyOpacityFilter50Button">Aplicar 50% de opacidade</button>
+			<button id="applyOpacityFilter75Button">Aplicar 75% de opacidade</button>
+			<button id="applyOpacityFilter100Button">Aplicar 100% de opacidade</button>
+          <hr>
+        </div>
+
+				
+				<div><button id="pasteButton" onclick="showPaste()"><span class="material-symbols-outlined">
+content_paste
+</span>Colar de</button></div>
+				<div><button id="brushButton" onclick="showBrush()"><span class="material-symbols-outlined">brush</span>Pincel</button></div>
+				<div><button><span class="material-symbols-outlined">colors</span>Balde</button></div>
+				<div><button id="pencilButton" onclick="showPencil()"><span class="material-symbols-outlined">draw</span>Lápis</button></div>
+				<div><button id="sprayButton" onclick="showSpray()">Spray</button></div>
+				<div><button id="eraserButton" onclick="showEraser()" onclick="changeToEraserAndWhiteColor()"><span class="material-symbols-outlined">ink_eraser</span>Borracha</button></div>
+				<div><button id="textButton" onclick="showText()"><span class="material-symbols-outlined">title</span>Texto</button></div>
+				<div><button><span class="material-symbols-outlined">lasso_select</span>Selecionar</button></div>
+				<div><button><span class="material-symbols-outlined">circle</span>Formas Geométricas</button></div>
+				<div><button id="effectsButton" onclick="showEffects()"><span class="material-symbols-outlined">blur_on</span>Efeitos</button></div>
+				
+			</div>
+			<div id="welcomeDialog">
+				<img src="Images/Logos/Logo Transparent.png" id="logoCenter"/>
+				<p>Bem-vindo ao TopEdition, clique no botão de criar uma imagem em branco ou o botão de abrir uma imagem para continuar.</p>
+			</div>
+			<canvas id="canvas" width="800" height="600"></canvas>
+		</div>
+	</div>
+	<div class="footer">
+		<p>Versão: 09.11.2023.dev</p>
+</body>
+</html>
