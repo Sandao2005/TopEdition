@@ -907,3 +907,42 @@ document.getElementById("applyInvertFilter0Button").addEventListener("click", fu
   document.getElementById("applyOpacityFilter100Button").addEventListener("click", function(){
     ctx.filter="opacity(100%)";
   });
+
+//acessibilidade
+
+var myTopBar=document.querySelector(".topBar");
+    var myLeftbar=document.querySelector("#leftBar");
+    var myBody=document.querySelector("body");
+    var myWelcomeDialog=document.querySelector("#welcomeDialog");
+    var myNewImageDialog=document.querySelector("#newImageDialog");
+    var myOpenImageDialog=document.querySelector("#openImageDialog");
+    var mySettingsDialog=document.querySelector("#settingsDialog");
+    var myHelpDialog=document.querySelector("#helpDialog");
+    var myDownloadDialog=document.querySelector("#downloadDialog");
+    var myCanvas=document.querySelector("canvas");
+
+document.getElementById("highContrastButton").addEventListener("click", function(){
+    myTopBar.style.border="3px solid white";
+    myLeftbar.style.border="3px solid white";
+    myLeftbar.style.backgroundColor="black";
+    myBody.style.backgroundColor="black";
+    myWelcomeDialog.style.border="3px solid white";
+    myNewImageDialog.style.border="3px solid white";
+    myOpenImageDialog.style.border="3px solid white";
+    mySettingsDialog.style.border="3px solid white";
+    myHelpDialog.style.border="3px solid white";
+    myDownloadDialog.style.border="3px solid white";
+    myCanvas.style.border="3px solid white";
+
+
+
+  });
+
+  document.getElementById("bigIconsButton").addEventListener("click", function(){
+    document.body.style.zoom = "125%";
+    document.editionArea.style.zoom = "100%";
+   
+
+
+
+  });
