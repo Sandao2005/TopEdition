@@ -1,10 +1,10 @@
-//top bar functionality
 
-const newImageDialog = document.getElementById("newImageDialog");
-const openImageDialog = document.getElementById("openImageDialog");
-const settingsDialog = document.getElementById("settingsDialog");
-const helpDialog = document.getElementById("helpDialog");
-const downloadDialog = document.getElementById("downloadDialog");
+
+var newImageDialog = document.getElementById("newImageDialog");
+var openImageDialog = document.getElementById("openImageDialog");
+var settingsDialog = document.getElementById("settingsDialog");
+var helpDialog = document.getElementById("helpDialog");
+var downloadDialog = document.getElementById("downloadDialog");
 
 function openNewImageDialog() {
     newImageDialog.style.display = "block";
@@ -17,32 +17,32 @@ function openOpenImageDialog() {
 
 function imageToCanvas(input){
 
-    const fileInput = event.target;
-    const file = fileInput.files[0];
+     var fileInput = event.target;
+     var file = fileInput.files[0];
 
     if (file) {
-        const img = new Image();
+         var img = new Image();
 
         img.onload = function() {
 
         canvas.width=img.width;
         canvas.height=img.height;
 
-            // Limpa o canvas
+            
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            // Desenha a imagem no canvas
+           
             ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
         };
 
-        // Carrega a imagem selecionada
+        
         img.src = URL.createObjectURL(file);
 
         
     }
 }
 
-const fileInput = document.getElementById('fileInput');
+ var fileInput = document.getElementById('fileInput');
 fileInput.addEventListener('change', imageToCanvas);
 
 
@@ -72,11 +72,11 @@ function downloadPNG() {
     a.href = dataUrl;
     a.download = "canvas-download.png";
 
-    // Attach the 'downloadPNG' function to the button click event
+    
     var downloadButton = document.getElementById("downloadPNGButton");
     downloadButton.addEventListener("click", downloadPNG);
 
-    // Programmatically trigger a click event on the 'a' element to initiate the download
+   
     var event = new MouseEvent("click", {
         view: window,
         bubbles: true,
@@ -137,21 +137,21 @@ function closeDownloadDialog() {
     downloadDialog.style.display = "none";
 }
 
-const newImageButton = document.getElementById("newImageButton");
+ var newImageButton = document.getElementById("newImageButton");
 newImageButton.addEventListener("click", openNewImageDialog);
 
-const openImageButton = document.getElementById("openImageButton");
+ var openImageButton = document.getElementById("openImageButton");
 openImageButton.addEventListener("click", openOpenImageDialog);
 
 document.getElementById("openImageToCanvasButton")
 
-const settingsButton = document.getElementById("settingsButton");
+ var settingsButton = document.getElementById("settingsButton");
 settingsButton.addEventListener("click", openSettingsDialog);
 
-const helpButton = document.getElementById("helpButton");
+ var helpButton = document.getElementById("helpButton");
 helpButton.addEventListener("click", openHelpDialog);
 
-const downloadButton = document.getElementById("downloadButton");
+ var downloadButton = document.getElementById("downloadButton");
 downloadButton.addEventListener("click", openDownloadDialog);
 
 //o canvas
@@ -362,7 +362,7 @@ var myPastedImage=document.getElementById("myPastedImageInput");
 
     
         function applyPastedImage() {
-            const input = document.getElementById('myPastedImageInput');
+             var input = document.getElementById('myPastedImageInput');
 
             var myPastedImageXPosition=document.getElementById("movePastedImageFromXInput").value;
             
@@ -372,14 +372,14 @@ var myPastedImage=document.getElementById("myPastedImageInput");
 
             var myPastedImageHeight=document.getElementById("pastedImageHeightInput").value;
 
-            const imagem = new Image();
+             var imagem = new Image();
             imagem.onload = function() {
                 ctx.drawImage(imagem, myPastedImageXPosition, myPastedImageYPosition, myPastedImageWidth,myPastedImageHeight);
             }
 
             if (input.files && input.files[0]) {
-                const file = input.files[0];
-                const reader = new FileReader();
+                 var file = input.files[0];
+                 var reader = new FileReader();
                 reader.onload = function(e) {
                     imagem.src = e.target.result;
                 }
@@ -478,9 +478,9 @@ function hidePencil(){
     hidingPencil.style.display="none";
 }
 
-const pencilColorPicker = document.getElementById('pencilColorPicker');
-const pencilSizePicker = document.getElementById('pencilSizePicker');
-const pencilScreenCleaner=document.getElementById("clearPencilButton")
+ var pencilColorPicker = document.getElementById('pencilColorPicker');
+ var pencilSizePicker = document.getElementById('pencilSizePicker');
+ var pencilScreenCleaner=document.getElementById("clearPencilButton")
 let isPencilDrawing = false;
 
 ctx.strokeStyle = pencilColorPicker.value;
@@ -529,9 +529,9 @@ function hideSpray(){
     hidingSpray.style.display = "none";
 }
 
-const sprayColorPicker = document.getElementById('sprayColorPicker');
-const spraySizePicker = document.getElementById('spraySizePicker');
-const sprayButton = document.getElementById("clearSprayButton");
+ var sprayColorPicker = document.getElementById('sprayColorPicker');
+ var spraySizePicker = document.getElementById('spraySizePicker');
+ var sprayButton = document.getElementById("clearSprayButton");
 let isSprayDrawing = false;
 
 ctx.strokeStyle = sprayColorPicker.value;
@@ -550,8 +550,8 @@ canvas.addEventListener('mousemove', (e) => {
 if (!isSprayDrawing) return;
 
     for (let i = 0; i < 5; i++) {
-        const offsetX = Math.random() * 20 - 10; // Valor aleatório entre -10 e 10
-        const offsetY = Math.random() * 20 - 10; // Valor aleatório entre -10 e 10
+         var offsetX = Math.random() * 20 - 10; // Valor aleatório entre -10 e 10
+         var offsetY = Math.random() * 20 - 10; // Valor aleatório entre -10 e 10
 
         ctx.beginPath();
         ctx.arc(e.clientX - canvas.getBoundingClientRect().left + offsetX, e.clientY - canvas.getBoundingClientRect().top + offsetY, ctx.lineWidth / 2, 0, 2 * Math.PI);
@@ -592,8 +592,8 @@ function hideEraser(){
 }
 
 
-const eraserSizePicker = document.getElementById('eraserSizePicker');
-const eraserScreenCleaner=document.getElementById("clearEraserButton")
+ var eraserSizePicker = document.getElementById('eraserSizePicker');
+ var eraserScreenCleaner=document.getElementById("clearEraserButton")
 let isEraserDrawing = false;
 
 ctx.strokeStyle = "white";
@@ -678,11 +678,89 @@ function hideText(){
 
 
 document.getElementById("sansSerifFontButton").addEventListener("click", function(){
-  ctx.font=myTextSize+"px Sans-Serif";
-  ctx.fillStyle=myTextColor;
+
+  var myText=document.getElementById("textInput").value;
+  var myTextXValue=document.getElementById("myTextXValue").value;
+  var myTextYValue=document.getElementById("myTextYValue").value;
+  var myTextColor=document.getElementById("myTextColor").value;
+  var myTextSize=document.getElementById("myTextSize").value;
+
+
+  ctx.font = myTextSize+'px Sans-Serif';
+  ctx.fillStyle = myTextColor;
+
+  // Desenha o texto no canvas
+  ctx.fillText(myText, myTextXValue, myTextYValue);
 });
 
 
+document.getElementById("serifFontButton").addEventListener("click", function(){
+  var myText=document.getElementById("textInput").value;
+  var myTextXValue=document.getElementById("myTextXValue").value;
+  var myTextYValue=document.getElementById("myTextYValue").value;
+  var myTextColor=document.getElementById("myTextColor").value;
+  var myTextSize=document.getElementById("myTextSize").value;
+
+
+  ctx.font = myTextSize+'px Serif';
+  ctx.fillStyle = myTextColor;
+
+  // Desenha o texto no canvas
+  ctx.fillText(myText, myTextXValue, myTextYValue);
+
+
+});
+
+document.getElementById("cursiveFontButton").addEventListener("click", function(){
+  var myText=document.getElementById("textInput").value;
+  var myTextXValue=document.getElementById("myTextXValue").value;
+  var myTextYValue=document.getElementById("myTextYValue").value;
+  var myTextColor=document.getElementById("myTextColor").value;
+  var myTextSize=document.getElementById("myTextSize").value;
+
+
+  ctx.font = myTextSize+'px Cursive';
+  ctx.fillStyle = myTextColor;
+
+  // Desenha o texto no canvas
+  ctx.fillText(myText, myTextXValue, myTextYValue);
+
+
+});
+
+document.getElementById("fantasyFontButton").addEventListener("click", function(){
+  var myText=document.getElementById("textInput").value;
+  var myTextXValue=document.getElementById("myTextXValue").value;
+  var myTextYValue=document.getElementById("myTextYValue").value;
+  var myTextColor=document.getElementById("myTextColor").value;
+  var myTextSize=document.getElementById("myTextSize").value;
+
+
+  ctx.font = myTextSize+'px Fantasy';
+  ctx.fillStyle = myTextColor;
+
+  // Desenha o texto no canvas
+  ctx.fillText(myText, myTextXValue, myTextYValue);
+
+
+});
+
+document.getElementById("monospaceFontButton").addEventListener("click", function(){
+  var myText=document.getElementById("textInput").value;
+  var myTextXValue=document.getElementById("myTextXValue").value;
+  var myTextYValue=document.getElementById("myTextYValue").value;
+  var myTextColor=document.getElementById("myTextColor").value;
+  var myTextSize=document.getElementById("myTextSize").value;
+
+
+  ctx.font = myTextSize+'px Monospace';
+  ctx.fillStyle = myTextColor;
+
+  // Desenha o texto no canvas
+  ctx.fillText(myText, myTextXValue, myTextYValue);
+
+
+});
 
 //AIN CABECINHA
 function sendText(){
@@ -980,6 +1058,8 @@ var myTopBar=document.querySelector(".topBar");
     var myTopBar=document.querySelector(".topBar ");
     var myTexts=document.querySelector("p");
     
+    
+
 
 document.getElementById("highContrastButton").addEventListener("click", function(){
     myTopBar.style.border="3px solid white";
@@ -1000,6 +1080,10 @@ document.getElementById("highContrastButton").addEventListener("click", function
     myTexts.style.fontWeight="bold";
     myTopBar.style.border="3px solid white";
 
+
+
+    
+
   });
 
   document.getElementById("bigIconsButton").addEventListener("click", function(){
@@ -1009,7 +1093,13 @@ document.getElementById("highContrastButton").addEventListener("click", function
 
   });
 
-  
+  var myBigTexts = document.querySelector(".topBar");
+
+  document.getElementById("bigFontButton").addEventListener("click", function(){
+      myBigTexts.style.fontSize = "90px";
+  });
+
+
 
   document.getElementById("resetAcessbilityButton").addEventListener("click", function(){
     document.body.style.zoom = "100%";
