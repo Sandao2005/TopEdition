@@ -1,0 +1,394 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+		
+
+		.material-symbols-outlined {
+  		font-variation-settings:
+  		'FILL' 0,
+  		'wght' 400,
+  		'GRAD' 0,
+  		'opsz' 24
+		}
+
+
+
+		body{
+			font-family:'Fira Sans', sans-serif;
+			background-color: #272727;			
+			
+		}
+		body p{
+			color: white;
+		}
+		#logo{
+			width: 40px;
+		}
+		.topBar{
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			font-weight: lighter;
+			transition: 0.1s;
+			border-radius: 0px;
+			background-color: #000000;
+		}
+		.topBar Button{
+			margin: 3px;
+			background-color: transparent;
+			border: 0px;
+			padding: 10px;
+			transition: 0.1s;
+			color: white;
+		}
+		.topBar Button:hover{
+			background: rgba(102, 51, 153, 0.247);
+		color: white;
+			
+
+		}
+		.topBar Button:active{
+			background: rgba(102, 51, 153, 0.377);	
+			color: white;
+			
+		}
+		#leftBarPaste{
+		  display: none;
+		  border-bottom: 5px solid white;
+		}
+		.dialog{
+			display:none;
+			margin-top: 10px;
+			margin-left: 20px;
+			border-radius: 20px;
+			transition: 0.5s;
+			background-color:black;
+
+		}
+		.dialog h3, h4, p, ul, input[type=checkbox], label, input[type=file]{
+			
+			color: white;
+			accent-color: rebeccapurple;
+		}
+		.dialog h3{
+			margin-left: 20px;
+			padding-top: 20px;
+		}
+		.dialog Button{
+			border:1px;
+			background: none;
+			padding: 10px;
+			border-radius: 20px;
+			transition: 0.1s;
+			color: rebeccapurple;
+		}
+		.dialog Button:hover{
+			background: rgba(102, 51, 153, 0.247);
+			
+;
+		}
+		.dialog button:active{
+			background: rgba(102, 51, 153, 0.377);
+			
+
+		}
+		#welcomeDialog{
+			margin-top: 10px;
+			margin-left: 20px;
+			border-radius: 20px;
+			transition: 0.5s;
+			background-color:black;
+			
+		}
+		
+		#welcomeDialog Img{
+			margin-top: 6px;
+			width: 500px;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+			margin-left: 25px;
+			z-index: 0;
+			border:1px solid white;
+			background: white;
+			border-radius: 20px;
+			
+		}
+
+		#welcomeDialog p{
+			color: white;
+		}
+		#logoCenter{
+			width: 450px;
+		}
+
+		.content{
+			
+		}
+		.editionArea{
+			display: flex;
+    		flex-direction: row; /* Os elementos serão dispostos horizontalmente */
+			align-items: flex-start; /* Alinhar os elementos no topo verticalmente */
+			justify-content: flex-start;
+			
+			
+		}
+		canvas{
+			border: 1px solid black;
+			display: flex;
+			margin-top: 70px;
+			cursor:crosshair;
+		}
+
+		
+		#leftBar{
+			width: 150px; /* Largura da leftBar */
+    		background-color: #171717;
+			border-radius: 0px 20px 20px 0px;
+			display: block;
+			padding-left: 10px;
+			margin-right: 5px;
+			border-top: 1px solid #171717;
+			margin-top: 10px;
+		}
+		
+		#leftBar button{
+			background: white;
+			color: black;
+			padding: 10px;
+			margin: 2px;
+			border-radius: 20px;
+			border: 1px;
+			transition: 0.1s;
+		}
+		#leftBar button:hover{
+			background: lightgrey;
+			color: black;
+			transition: 0.1s;
+			
+		}
+		#leftBar button:active{
+			background: rgba(102, 51, 153, 0.377);
+			color: white;
+		}
+		#leftBarBrush{
+			display: none;
+			border-bottom: 5px solid white;
+			
+		}
+		#brushColorPicker{
+			width: 80px;
+			height: 80px;
+			border-radius: 15px;
+		}
+
+		#brushSizePicker{
+			accent-color: mediumpurple;
+			color: mediumpurple;
+			background: mediumpurple;
+		}
+		
+		#leftBarPencil{
+			display: none;
+			border-bottom: 5px solid white;
+		}
+
+		#pencilColorPicker{
+			width: 80px;
+			height: 80px;
+			border-radius: 15px;
+		}
+
+		#pencilSizePicker{
+			accent-color: mediumpurple;
+		}
+
+		#leftBarEraser{
+			display: none;
+			border-bottom: 5px solid white;
+		}
+
+		#eraserColorPicker{
+			display: none;
+			border-radius: 20px;
+		}
+
+		#eraserSizePicker{
+			accent-color: mediumpurple;
+		}
+		#leftBarText{
+			
+		}
+		#leftBar input[type=number], input[type=text] {
+				width: 135px;
+				border-radius: 5px;
+				border: 0px	;
+		}
+		#textColorPicker{
+		  width: 80px;
+		  height: 80px;
+		  border-radius: 10px;
+		}
+
+		#helpDialog{
+
+		}
+		#helpDialog h3{
+			background-color: black;
+			display: inline-block;
+						
+		}
+		#helpDialog h4{
+			background-color: purple;
+			color: white;
+			display: inline-block	;
+			padding: 10px;
+			border-radius: 20px;
+
+		}
+		#logoInHelpDialog{
+			width: 230px;
+			float: right;
+			margin-bottom: 20px;
+			display: inline-block;
+			padding-right: 100px;
+			
+		}
+
+		
+
+		#helpDialog button{
+			background-color: rebeccapurple;
+			color: white;
+			transition: 0.1s;
+			margin: 3px;
+		}
+		#helpDialog button:hover{
+			background: rgba(102, 51, 153, 0.247);
+		}
+		#helpDialog button:active{
+			background: rgba(102, 51, 153, 0.377);
+			color: white;
+		}
+		#helpDialog div{
+			background: #171717;
+		}
+		#leftBarText{
+			display: none;
+			border-bottom: 5px solid white;
+		}
+		#myTextColor{
+			width: 80px;
+			height: 80px;
+			border-radius: 15px;
+		}
+		
+		
+		@media only screen and (max-width:1920px) and (max-height:1080px){
+			
+		  .topBar{
+		    width: 200%;
+		    
+		  }
+		  #leftBar{
+		    max-width: 100px;
+		  }
+		  #leftBar button{
+		    width:90px;
+		    height: 50px;
+		    
+		  }
+		  #welcomeDialog{
+		    width: 200px;
+		    height:300px;
+		  }
+		  #welcomeDialog img{
+		    width: 160px;
+		}
+		
+		#leftBarPaste{
+		  display: none;
+		  border-bottom:5px solid white;
+		}
+		#leftBarSpray{
+		  display: none;
+		  border-bottom:5px solid white;
+		}
+	
+	#leftBarEffects{
+	  display: none;
+	  border-bottom:5px solid white;
+	}
+	#leftBarSpray{
+		display: none;
+		border-bottom:5px solid white;
+	}
+		}
+	@media screen and (forced-colors: active) {
+		#leftBar input[type=number], input[type=text] {
+			width: 135px;
+			border-radius: 5px;
+			border: 3px solid white;	
+		}		
+
+		#leftBar button{
+			border: 3px solid white;
+			
+		} 
+		#leftBar button img{
+			display: none;
+		}
+		.dialog button{
+			border: 3px solid white;
+		}
+		.dialog img{
+			border: 3px solid white;
+		}
+		.topBar button{
+			border: 3px solid white;
+		}
+
+	body{
+		background-color: black;
+	}
+	.topBar{
+		border: 3px solid white;
+	}
+	#leftbar{
+		border: 3px solid white;	
+		background-color: black;
+	}
+	.leftBar{
+		border: 3px solid white;
+	}
+	#welcomeDialog{
+		border: 3px solid white;
+
+	}
+	#welcomeDialog img{
+		background-color: aliceblue;
+	}
+	#newImageDialog{
+		border: 3px solid white;
+	}
+	#openImageDialog{
+		border: 3px solid white;
+	}
+	#settingsDialog{
+		border: 3px solid white;
+	}
+	#helpDialog{
+		border: 3px solid white;
+	}
+	#downloadDialog{
+		border: 3px solid white;
+	}
+	canvas{
+		border: 3px solid white;
+	}
+	
+	  }
+
+	  #leftBarGeometricShapes{
+		display: none;
+		border-bottom: 5px solid white;
+	  }
