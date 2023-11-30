@@ -1055,11 +1055,9 @@ var myTopBar=document.querySelector(".topBar");
     var myCanvas=document.querySelector("canvas");
     var myDialogs=document.querySelector(".dialog");
     var myDialogsButtons=document.querySelector("button");
-    var myTopBar=document.querySelector(".topBar ");
+    var myButtons=document.querySelector(".topBar ");
     var myTexts=document.querySelector("p");
     
-    
-
 
 document.getElementById("highContrastButton").addEventListener("click", function(){
     myTopBar.style.border="3px solid white";
@@ -1074,15 +1072,11 @@ document.getElementById("highContrastButton").addEventListener("click", function
     myDownloadDialog.style.border="3px solid white";
     myCanvas.style.border="3px solid white";
     myButtons.style.backgroundColor="black";
-    myButtons.style.border="0px solid white";
-    myDialogsButtons.style.border="3px solid white";
+    myTopBar.style.border="3px solid white";
+    myDialogsButtons.style.border="0px solid white";
     myTexts.style.color="white";
     myTexts.style.fontWeight="bold";
-    myTopBar.style.border="3px solid white";
-
-
-
-    
+    myDialogs.style.border="3px solid white";
 
   });
 
@@ -1093,13 +1087,7 @@ document.getElementById("highContrastButton").addEventListener("click", function
 
   });
 
-  var myBigTexts = document.querySelector(".topBar");
-
-  document.getElementById("bigFontButton").addEventListener("click", function(){
-      myBigTexts.style.fontSize = "90px";
-  });
-
-
+  
 
   document.getElementById("resetAcessbilityButton").addEventListener("click", function(){
     document.body.style.zoom = "100%";
